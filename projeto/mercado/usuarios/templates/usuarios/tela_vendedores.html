@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,18 @@
 </head>
 <body>
     <h1>Aqui é somente para vendedores da loja, onde iremos adicionar produtos novos</h1>
+
+    <form action="" method="post">
+        <h3>Adicionar Produto</h3>
+
+        {% csrf_token %}
+        {{form}}
+
+        <br>
+    <input type="submit" value="Enviar">
+    </form>
+
+    <a href="#">Voltar para o início</a>
     
 </body>
 </html>

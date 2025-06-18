@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+class Produtos(models.Model):
+    nome = models.CharField(max_length=45)
+    perecivel = models.BooleanField(default=False)
+    preco = models.FloatField()
+    marca = models.CharField(max_length=25)
+    
+    def __str__(self):
+        return self.nome
+    

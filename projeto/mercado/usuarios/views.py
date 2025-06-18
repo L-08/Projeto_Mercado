@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
+from .forms import ProdutoForms
 # Create your views here.
 def cadastro(request:HttpRequest):
     if request.method == "GET":
@@ -39,6 +40,15 @@ def login(request):
             return HttpResponse("Usuario ou senha inválidos")
     
 
-@login_required(login_url='auth/login/')
-def tela_vendedores(request):
-    return render(request, 'usuarios/tela_vendedores.html')
+@login_required(login_url='/auth/login/')
+def tela_vendedores(request:HttpRequest):
+    if request.method == "POST":
+        formulario = ProdutoForms(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('principal.html')
+    contexto ={
+        
+        'form':ProdutoForms
+    }
+    return render(request, 'usuarios/tela_vendedores.html', contexto)
