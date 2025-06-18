@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
+    <style>
+    .produtos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .produto{
+        padding: 20px;
+        border: 2px solid black;
+    }
+    
+    
+    </style>
 </head>
 <body>
     <h1>Tela de produtos</h1>
+
     
-    
+        <div class="produtos">
+            {% for produto in produtos %}
+            <div class="produto">
+                <h3>{{produto.nome}}</h3>
+                <p>{{produto.perecivel}}</p>
+                <p>{{produto.marca}}</p>
+                <p>{{produto.preco}}</p>
+            </div>
+            {% endfor %}
+        </div>
+   
 </body>
 </html>

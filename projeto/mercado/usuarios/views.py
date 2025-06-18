@@ -46,9 +46,13 @@ def tela_vendedores(request:HttpRequest):
         formulario = ProdutoForms(request.POST)
         if formulario.is_valid():
             formulario.save()
-            return redirect('principal.html')
+            return redirect('produtos:tela_produtos')
     contexto ={
         
         'form':ProdutoForms
     }
     return render(request, 'usuarios/tela_vendedores.html', contexto)
+
+@login_required(login_url='/auth/login/')
+def tela_remover(request):
+    return render(request, '')

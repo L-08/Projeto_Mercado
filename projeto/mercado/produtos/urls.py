@@ -4,6 +4,6 @@ from . import views
 app_name = 'produtos'
 urlpatterns = [
 
-    path("", views.tela_principal, name='principal'),
+    path("", views.tela_principal, name='tela_produtos'),
 
 ]
