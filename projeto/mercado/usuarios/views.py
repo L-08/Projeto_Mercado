@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpRequest
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as login_django
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def cadastro(request:HttpRequest):
     if request.method == "GET":
@@ -22,9 +23,6 @@ def cadastro(request:HttpRequest):
         return HttpResponse("usuario cadastrado com sucesso")
     
 
-
-    
-
 def login(request):
     if request.method == "GET":
         return render(request, "usuarios/login.html")
@@ -35,6 +33,12 @@ def login(request):
         user = authenticate(username=username, password=senha)
 
         if user:
+            login_django(request, user)
             return HttpResponse("autenticado")
         else:
             return HttpResponse("Usuario ou senha inválidos")
+    
+
+@login_required(login_url='auth/login/')
+def tela_vendedores(request):
+    return render(request, 'usuarios/tela_vendedores.html')
