@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+}
+    
+.produto {
+   padding: 10px;
+   border: 2px solid black;
+
+}
+        
+    </style>
+
+</head>
+<body>
+    <h1>Detalhes dos Produtos</h1>
+   
+<div class="produtos">
+
+    {% for  produto in produtos %}
+
+    <div class="produto">
+        <h3>{{produto.nome}}</h3>
+        <p>{{produto.perecivel}}</p>
+        <p>{{produto.marca}}</p>
+        <p>{{produto.preco}}</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

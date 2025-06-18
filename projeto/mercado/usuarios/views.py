@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 from .forms import ProdutoForms
+from usuarios.models import Produtos
 # Create your views here.
 def cadastro(request:HttpRequest):
     if request.method == "GET":
@@ -53,6 +54,14 @@ def tela_vendedores(request:HttpRequest):
     }
     return render(request, 'usuarios/tela_vendedores.html', contexto)
 
+
 @login_required(login_url='/auth/login/')
-def tela_remover(request):
-    return render(request, '')
+def detalhes(request:HttpRequest):
+    contexto = {
+        'produtos':Produtos.objects.all()
+    }
+    return render(request, 'usuarios/detalhes.html', contexto)
+
+@login_required(login_url='/auth/login/')
+def tela_remover(request:HttpRequest):
+    return render(request, 'usuarios/remover_produtos.html')
