@@ -4,26 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        
-.produtos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 20px;
-}
     
-.produto {
-   padding: 10px;
-   border: 2px solid black;
+    <style>
 
-}
+        
+    .produtos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 20px;
+    }
+        
+    .produto {
+    padding: 10px;
+    border: 2px solid black;
+
+    }
+
+    body{
+        margin: 0px;
+        background-color: rgb(240, 204, 138);
+        
+    }
+    header{
+        background-color: orange;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    header{
+        background-color: orange;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 30px;
+        color: white;
+    }
         
     </style>
 
 </head>
 <body>
-    <h1>Detalhes dos Produtos</h1>
+    <header>
+
+        <h1>Título</h1>
+
+        <a href="#">Principal</a>
+        <a href="#">Produtos</a>
+    </header>
    
 <div class="produtos">
 
@@ -34,8 +62,9 @@
         <p>{{produto.perecivel}}</p>
         <p>{{produto.marca}}</p>
         <p>{{produto.preco}}</p>
+        <a href="{% url 'usuarios:remover' produto.id %}">Remover</a>
+        <a href="{% url 'usuarios:editar' produto.id %}">Editar</a>
     </div>
-
     {% endfor %}
 
 </div>

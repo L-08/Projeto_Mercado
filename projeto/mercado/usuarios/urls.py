@@ -7,5 +7,8 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path("vendedores/", views.tela_vendedores, name='vendedores'),
     path('detalhes/', views.detalhes, name='detalhes'),
-    path('remover/', views.tela_remover, name='remover')
+    path('remover/<int:id>', views.tela_remover, name='remover'),
+    path('editar/<int:id>', views.tela_editar, name='editar')
 ]
+
+print("Olá, mundo!")

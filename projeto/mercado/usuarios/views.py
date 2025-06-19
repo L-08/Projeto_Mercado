@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.http import HttpRequest
 from django.contrib.auth.models import User
@@ -63,5 +63,23 @@ def detalhes(request:HttpRequest):
     return render(request, 'usuarios/detalhes.html', contexto)
 
 @login_required(login_url='/auth/login/')
-def tela_remover(request:HttpRequest):
+def tela_remover(request:HttpRequest, id):
+    produto = get_object_or_404(Produtos,id=id)
+    produto.delete()
     return render(request, 'usuarios/remover_produtos.html')
+
+
+@login_required(login_url='/auth/login/')
+def tela_editar(request:HttpRequest, id):
+    produto = get_object_or_404(Produtos, id=id)
+    if request.method == "POST":
+        formulario = ProdutoForms(request.POST, instance=produto)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('usuarios:detalhes')
+    
+    formulario = ProdutoForms(instance=produto)
+    contexto = {
+        'form': formulario
+    }
+    return render(request, 'usuarios/editar.html', contexto)
