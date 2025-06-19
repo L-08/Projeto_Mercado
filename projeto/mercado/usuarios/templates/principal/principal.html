@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM</title>
+    <style>
+        body{
+            margin: 0px;
+            background-color: rgb(199, 199, 199);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header{
+            background-color: orange;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        h1{
+            display: inline;
+            
+        }
+
+
+        a{
+            color: aliceblue;
+            text-decoration: none;
+            margin: 70px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+        footer{
+            background-color: orangered;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            
+        }
+        #sobre{
+            background-color: whitesmoke;
+            width: 800px;
+            padding: 10px;
+            margin: auto;
+            border-radius: 5px;
+        }
+        h2{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Supermercado </h1>
+        <h1>LM</h1>
+        <br>
+        <br>
+        
+        <a href="{% url 'produtos:tela_produtos' %}">Produtos</a>
+        <a href="{% url 'usuarios:login' %}">Login</a>
+    </header>
+    <main>
+        <div class="layout">
+            
+            "carrossel de imagens"
+
+        </div>
+
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            Bem-vindo ao <strong>LM</strong>!
+
+            <p>Somos mais do que um supermercado — somos parte da sua rotina, da sua família e da sua comunidade. Desde nossa fundação, temos o compromisso de oferecer produtos de qualidade, atendimento acolhedor e preços justos para tornar o seu dia a dia mais prático e acessível.</p>
+
+            <p>Aqui, você encontra uma ampla variedade de alimentos frescos, produtos de higiene, limpeza, bebidas, itens para o lar e muito mais. Trabalhamos com as melhores marcas do mercado e também valorizamos os produtores locais, garantindo variedade, frescor e procedência.</p>
+
+            <p>Nosso time está sempre pronto para te atender com simpatia e dedicação. Queremos que cada visita ao <strong>LM</strong> seja física ou online, se torne uma experiência positiva, segura e agradável.</p>
+
+            <p>Acreditamos na força da vizinhança, por isso investimos em ações sociais e sustentáveis, apoiando projetos locais e promovendo o consumo consciente.</p>
+
+            <p>Obrigado por confiar no <strong>LM</strong>. Estamos aqui por você e para você, todos os dias.</p>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Site desenvolvido por Lucas Eduardo, em estudo do Curso de Tecnico em Desenvolvimento de Sistema - SENAC</p>
+    </footer>
+    
+</body>
+</html>
