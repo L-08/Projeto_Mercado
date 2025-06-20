@@ -5,6 +5,7 @@ class Produtos(models.Model):
     perecivel = models.BooleanField(default=False)
     preco = models.FloatField()
     marca = models.CharField(max_length=25)
+    imagem = models.ImageField(upload_to='produtos/', null=True, blank=True)
     
     def __str__(self):
         return self.nome
