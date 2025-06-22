@@ -10,5 +10,3 @@ urlpatterns = [
     path('remover/<int:id>', views.tela_remover, name='remover'),
     path('editar/<int:id>', views.tela_editar, name='editar')
 ]
-
-print("Olá, mundo!")
