@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
-from rolepermissions.roles import assign_role
 from .forms import ProdutoForms
 from usuarios.models import Produtos
 # Create your views here.
@@ -16,20 +15,12 @@ def cadastro(request:HttpRequest):
         username = request.POST.get("username")
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        vendedor = request.get('vendedor')
-
         user = User.objects.filter(username=username).first()
         if user:
             return HttpResponse("Já existem um usruario com este nome!")
         
-        
-        user = User.objects.create_user(username=username, email=email, password=senha, is_staff=vendedor)
-        if User.objects.get(is_staff=vendedor) == True:
-            assign_role('vendedor', user)
-            user.save()
-        else:
-            assign_role('cliente', user)
-            user.save()
+        user = User.objects.create_user(username=username, email=email, password=senha)
+        user.save()
 
         return HttpResponse("usuario cadastrado com sucesso")
     

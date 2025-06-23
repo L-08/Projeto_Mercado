@@ -5,26 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Vendedor</title>
 </head>
-<body>
-    
-    <form action="" method="post">
-        {{forms}}
-    </form>
-</body>
+    <body>
+        
+        <form action="{% url 'usuarios:cadastro' %}" method="POST">{% csrf_token %}
+            <h3>Cadastrar Vendedor</h3>
+            <input type="text" name="username" id="username" placeholder="Usuário">
+            <br>
+            <input type="text" name="email" id="email" placeholder="email">
+            <br>
+            <input type="password" name="senha" id="senha" placeholder="senha">
+            <br>
+            <input type="submit" value="Cadastrar">
+        </form>
+        <a href="{% url 'usuarios:login' %}">Fazer Login</a> 
+    </body>
 </html>
-<!-- 
-   <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
-        <h3>Cadastrar Vendedor</h3>
-        <input type="text" name="username" id="username" placeholder="Usuário">
-        <br>
-        <input type="text" name="email" id="email" placeholder="email">
-        <br>
-        <input type="password" name="senha" id="senha" placeholder="senha">
-        <br>
-        Você é um vendedor?<input type="checkbox" name="vendendor" id="vendendor">
-        <br>
-        <input type="submit" value="Cadastrar">
-    </form>
-    <a href="{% url 'usuarios:login' %}">Fazer Login</a> 
-
--->

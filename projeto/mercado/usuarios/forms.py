@@ -7,7 +7,3 @@ class ProdutoForms(forms.ModelForm):
         model = Produtos
         fields = ['nome', 'perecivel', 'preco', 'marca', 'imagem']
         
-class CadastroForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password', 'is_staff' ]
