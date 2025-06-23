@@ -1,38 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <style>
-    .produtos {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 20px;
-    }
-    .produto{
-        padding: 20px;
-        border: 2px solid black;
-    }
-    
-    
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Tela de produtos</h1>
+    <header>
+
+        <h1>Supermercado LM</h1>
+
+        <a href="{% url 'principal' %}">Principal</a>
+        <a href=" {% url 'usuarios:login' %}">Login</a>
+    </header>
+
 
     
-        <div class="produtos">
-            {% for produto in produtos %}
-            <div class="produto">
-                <h3>{{produto.nome}}</h3>
-                <p>{{produto.perecivel}}</p>
-                <p>{{produto.marca}}</p>
-                <p>{{produto.preco}}</p>
-            </div>
-            {% endfor %}
+    <div class="produtos">
+        {% for produto in produtos %}
+        <div class="produto">
+            <h3>{{produto.nome}}</h3>
+            <p>{{produto.imagem}}</p>
+            <p>{% if produto.completo %} Não Perecível{% else %} Perecível {% endif %}</p>
+            <p>{{produto.marca}}</p>
+            <p>R$ {{produto.preco}}</p>
         </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>Site desenvolvido por Lucas Eduardo, em estudo do Curso de Tecnico em Desenvolvimento de Sistema - SENAC</p>
+    </footer>
    
 </body>
 </html>

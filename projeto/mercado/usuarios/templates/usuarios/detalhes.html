@@ -1,75 +1,13 @@
+{% load static  %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
     
-    <style>
 
-        
-    .produtos {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 20px;
-        background-color: rgb(247, 115, 74);
-        padding: 20px;
-    }
-        
-    .produto {
-    padding: 10px;
-    border: 2px solid rgb(95, 94, 94);
-    border-radius: 5px;
-    background-color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    }
-
-    body{
-        margin: 0px;
-        background-color: rgb(240, 204, 138);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        
-    }
-
-    a{
-        color: aliceblue;
-        text-decoration: none;
-        margin: 70px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-
-
-    header{
-        color: white;
-        background-color: orange;
-        text-align: center;
-        padding: 30px;
-        font-family: Georgia, 'Times New Roman', Times, serif;}
-
-
-    header a:hover{
-        color: red;
-        text-decoration: underline;}
-
-    h3{
-        text-align: center;
-        font-size: 24px;
-    }
-    #aviso{
-        
-        background-color: rgb(128, 31, 31);
-        padding: 60px;
-        text-align: center;
-        color: wheat;
-    }
-    footer{
-            background-color: orangered;
-            color: white;
-            padding: 10px;
-            text-align: center;}
-        
-    </style>
 
 </head>
 <body>
@@ -81,7 +19,7 @@
         <a href=" {% url 'produtos:tela_produtos' %}">Produtos</a>
     </header>
 
-    <div id="aviso">
+    <div class="aviso">
         <p>Esta área é exclusiva para vendedores que possuem login, onde se pode editar e adicionar novos produtos.</p>
     </div>
    
@@ -92,15 +30,18 @@
     <div class="produto">
         <h3>{{produto.nome}}</h3>
         <img src="{{produto.imagem}}" alt="imagem_produto">
-        <p>{{produto.perecivel}}</p>
+        <p>{% if produto.completo %} Não Perecível{% else %} Perecível {% endif %}</p>
         <p>{{produto.marca}}</p>
-        <p>{{produto.preco}}</p>
-       
+        <p>R$ {{produto.preco}}</p>
         <a href="{% url 'usuarios:remover' produto.id %}">Remover</a>
         <a href="{% url 'usuarios:editar' produto.id %}">Editar</a>
     </div>
     {% endfor %}
+    <div id="novo_produto">
 
+        <a href="{% url 'usuarios:vendedores' %}"><img src="{% static 'img/add.png' %}" alt="adicionar_produto" width="200px"></a>
+        <p>NOVO PRODUTO</p>
+    </div>
 </div>
 <footer>
     <p>Site desenvolvido por Lucas Eduardo, em estudo do Curso de Tecnico em Desenvolvimento de Sistema - SENAC</p>

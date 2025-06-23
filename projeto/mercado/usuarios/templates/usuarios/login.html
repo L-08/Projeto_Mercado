@@ -1,21 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <header>
+        <h1>Supermercado LM</h1>
+        
+        <a href="{% url 'produtos:tela_produtos' %}">Produtos</a>
+        <a href="{% url 'usuarios:login' %}">Login</a>
+    </header>   
     
-    <form action="" method="POST">{% csrf_token %}
-        <h3>Login</h3>
+    <form action="" method="POST" class="formulario">{% csrf_token %}
+        <h3>LOGIN</h3>
         <input type="text" name="username" id="username" placeholder="Usuário">
         <br>
         <input type="password" name="senha" id="senha" placeholder="senha">
         <br>
         <input type="submit" value="Logar">
+        <br><br>
+        <a href="{% url 'usuarios:cadastro' %}">Cadastrar</a>
+        <a href="{% url 'produtos:tela_produtos' %}">Voltar</a>
     </form>
-    <a href="{% url 'usuarios:cadastro' %}">Cadastrar</a>
+    
+    <footer>
+        <p>Site desenvolvido por Lucas Eduardo, em estudo do Curso de Tecnico em Desenvolvimento de Sistema - SENAC</p>
+    </footer>
     
 </body>
 </html>

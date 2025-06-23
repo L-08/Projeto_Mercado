@@ -7,6 +7,8 @@ from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 from .forms import ProdutoForms
 from usuarios.models import Produtos
+
+
 # Create your views here.
 def cadastro(request:HttpRequest):
     if request.method == "GET":
@@ -44,14 +46,19 @@ def login(request):
 @login_required(login_url='/auth/login/')
 def tela_vendedores(request:HttpRequest):
     if request.method == "POST":
+        file = request.FILES.get('imagem')
         formulario = ProdutoForms(request.POST)
         if formulario.is_valid():
             formulario.save()
+
             return redirect('produtos:tela_produtos')
+        
     contexto ={
         
         'form':ProdutoForms
     }
+
+    
     return render(request, 'usuarios/tela_vendedores.html', contexto)
 
 

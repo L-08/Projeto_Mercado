@@ -1,14 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Vendedor</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
+    <header>
+        <h1>Supermercado LM</h1>
+        
+        <a href="{% url 'principal' %}">Principal</a>
+        <a href="{% url 'usuarios:login' %}">Login</a>
+    </header>   
     <body>
         
-        <form action="{% url 'usuarios:cadastro' %}" method="POST">{% csrf_token %}
-            <h3>Cadastrar Vendedor</h3>
+        <form action="{% url 'usuarios:cadastro' %}" method="POST" class="formulario">{% csrf_token %}
+            <h3>CADASTRAR</h3>
             <input type="text" name="username" id="username" placeholder="Usuário">
             <br>
             <input type="text" name="email" id="email" placeholder="email">
@@ -16,7 +25,13 @@
             <input type="password" name="senha" id="senha" placeholder="senha">
             <br>
             <input type="submit" value="Cadastrar">
+            <br><br>
+            <a href="{% url 'usuarios:login' %}">Fazer Login</a>
+            <a href="{% url 'produtos:tela_produtos' %}">Voltar</a>
         </form>
-        <a href="{% url 'usuarios:login' %}">Fazer Login</a> 
+         
     </body>
+    <footer>
+        <p>Site desenvolvido por Lucas Eduardo, em estudo do Curso de Tecnico em Desenvolvimento de Sistema - SENAC</p>
+    </footer>
 </html>

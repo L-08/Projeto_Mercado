@@ -1,14 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Produtos</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Aqui é somente para vendedores da loja, onde iremos adicionar produtos novos</h1>
+    <header>
 
-    <form action="" method="post">
+        <h1>Supermercado LM</h1>
+
+        <a href="{% url 'principal' %}">Principal</a>
+        <a href=" {% url 'produtos:tela_produtos' %}">Produtos</a>
+    </header>
+    <div class="aviso">
+        <p>Esta área é exclusiva para vendedores que possuem login, onde se pode editar e adicionar novos produtos.</p>
+    </div>
+
+    <form action="" method="post" enctype="multipart/form-data" class="formulario">
         <h3>Adicionar Produto</h3>
 
         {% csrf_token %}
@@ -16,10 +27,15 @@
 
         <br>
     <input type="submit" value="Enviar">
-    </form>
+    <br>
 
     <a href="#">Voltar para o início</a>
     <a href="#">Editar Produtos</a>
+    </form>
+
+    <footer>
+        <p>Site desenvolvido por Lucas Eduardo, em estudo do Curso de Tecnico em Desenvolvimento de Sistema - SENAC</p>
+    </footer>
     
 </body>
 </html>
