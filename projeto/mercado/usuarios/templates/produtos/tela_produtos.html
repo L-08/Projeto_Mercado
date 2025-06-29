@@ -9,12 +9,17 @@
 </head>
 <body>
     <header>
-
+       <a href="{% url 'usuarios:login' %}">
+            <img src="{% static 'img/user.png' %}" alt="user" width="30px">
+       </a>
         <h1>Supermercado LM</h1>
 
-        <a href="{% url 'principal' %}">Principal</a>
-        <a href=" {% url 'usuarios:login' %}">Login</a>
     </header>
+    <nav>
+        <a href="{% url 'principal' %}">Principal</a>
+        <a href="{% url 'usuarios:detalhes' %}">Detalhes</a>
+
+    </nav>
 
 
     
@@ -22,7 +27,12 @@
         {% for produto in produtos %}
         <div class="produto">
             <h3>{{produto.nome}}</h3>
-            <p>{{produto.imagem}}</p>
+            {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" alt="produto imagem" width="200px">
+            {% else %}
+                <p>Sem imagem</p>  {# ou coloque uma imagem padrão se quiser #}
+            {% endif %}
+
             <p>{% if produto.completo %} Não Perecível{% else %} Perecível {% endif %}</p>
             <p>{{produto.marca}}</p>
             <p>R$ {{produto.preco}}</p>

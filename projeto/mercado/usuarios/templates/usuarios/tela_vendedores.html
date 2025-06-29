@@ -9,12 +9,18 @@
 </head>
 <body>
     <header>
-
+       <a href="{% url 'usuarios:login' %}">
+            <img src="{% static 'img/user.png' %}" alt="user" width="30px">
+       </a>
         <h1>Supermercado LM</h1>
 
-        <a href="{% url 'principal' %}">Principal</a>
-        <a href=" {% url 'produtos:tela_produtos' %}">Produtos</a>
     </header>
+    <nav>
+        <a href="{% url 'principal' %}">Principal</a>
+        <a href="{% url 'usuarios:detalhes' %}">Detalhes</a>
+
+    </nav>
+    
     <div class="aviso">
         <p>Esta área é exclusiva para vendedores que possuem login, onde se pode editar e adicionar novos produtos.</p>
     </div>

@@ -9,11 +9,17 @@
 
 </head>
     <header>
+       <a href="{% url 'usuarios:login' %}">
+            <img src="{% static 'img/user.png' %}" alt="user" width="30px">
+       </a>
         <h1>Supermercado LM</h1>
-        
+
+    </header>
+    <nav>
         <a href="{% url 'principal' %}">Principal</a>
-        <a href="{% url 'usuarios:login' %}">Login</a>
-    </header>   
+        <a href="{% url 'usuarios:detalhes' %}">Detalhes</a>
+
+    </nav>  
     <body>
         
         <form action="{% url 'usuarios:cadastro' %}" method="POST" class="formulario">{% csrf_token %}

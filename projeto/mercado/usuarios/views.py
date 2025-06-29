@@ -38,7 +38,7 @@ def login(request):
 
         if user:
             login_django(request, user)
-            return HttpResponse("autenticado")
+            return render(request, 'usuarios/autenticado.html')
         else:
             return HttpResponse("Usuario ou senha inválidos")
     
@@ -47,7 +47,7 @@ def login(request):
 def tela_vendedores(request:HttpRequest):
     if request.method == "POST":
         file = request.FILES.get('imagem')
-        formulario = ProdutoForms(request.POST)
+        formulario = ProdutoForms(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
 
@@ -90,3 +90,6 @@ def tela_editar(request:HttpRequest, id):
         'form': formulario
     }
     return render(request, 'usuarios/editar.html', contexto)
+
+def autenticado(request):
+    return render(request, 'usuarios/autenticado.html')
