@@ -24,7 +24,7 @@ def cadastro(request:HttpRequest):
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
 
-        return HttpResponse("usuario cadastrado com sucesso")
+        return render(request, 'usuarios/cadastrado.html')
     
 
 def login(request):
@@ -93,3 +93,6 @@ def tela_editar(request:HttpRequest, id):
 
 def autenticado(request):
     return render(request, 'usuarios/autenticado.html')
+
+def cadastrado(request):
+    return render(request, 'usuarios/cadastrado.html')

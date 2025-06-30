@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #cadastrado{
+            background-color: gray;
+            color: white;
+            border-radius: 4px;
+            padding: 20px;
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            
+        }
+        h3{
+            margin-bottom: 70px;
+        }
+        a{
+            text-decoration: none;
+            color: orange;
+        }
+        a:hover{
+            text-decoration: underline;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="cadastrado">
+        <h3>Cadastrado Com sucesso!😊</h3>
+        <p>Faça seu Login agora:</p>
+        <br>
+        <a href="{% url 'usuarios:login' %}">Login</a>
+    </div>
+    
+</body>
+</html>

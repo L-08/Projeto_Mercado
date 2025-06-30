@@ -5,21 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LM</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+
+body{
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+header a{
+    color: aliceblue;
+    text-decoration: none;
+    margin: 70px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+
+
+header{
+    color: white;
+    background-color: orange;
+    text-align: center;
+    padding: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;}
+
+
+header a:hover{
+    color: red;
+    text-decoration: underline;}
+
+nav{
+        background-color: rgb(255, 102, 0);
+        padding: 20px;
+        text-align: center;
+    }
+nav a {
+    color: white;
+    margin-right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+    transition: color 0.5s;
+    color: rgb(0, 0, 0);
+}
+
+
+h3{
+    text-align: center;
+    font-size: 24px;
+}
+
+
+h2{
+    text-align: center;
+}
+header img{
+    margin-left: 1700px;
+}
+main{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 500px;
+    margin: auto;
+    border: gray solid 1px;
+}
+
+footer{
+        background-color: orangered;
+        color: white;
+        padding: 10px;
+        text-align: center;}
+
+
+#logo{
+    display: inline;
+    
+}
+
+    </style>
 </head>
 <body>
     <header>
-        <h1>Supermercado LM</h1>
-        
-        <a href="{% url 'produtos:tela_produtos' %}">Produtos</a>
-        <a href="{% url 'usuarios:login' %}">Login</a>
-    </header>
+        <a href="{% url 'usuarios:login' %}">
+             <img src="{% static 'img/user.png' %}" alt="user" width="30px">
+             
+        </a>
+         <h1 id="logo">Supermercado</h1>
+         <h1>LM</h1>
+ 
+     </header>
+     <nav>
+         <a href="{% url 'principal' %}">Principal</a>
+         <a href="{% url 'usuarios:detalhes' %}">Detalhes</a>
+ 
+     </nav>
     <main>
-        <div class="layout">
-            
-            "carrossel de imagens"
-
-        </div>
+        
 
         <section id="sobre">
             <h2>Sobre Nós</h2>

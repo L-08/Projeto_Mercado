@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
     <style>
             
 .produtos {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
+    gap: 6px;
     background-color: rgb(255, 255, 255);
     padding: 20px;
 }
@@ -21,10 +22,10 @@
     width: 350px;
     height: 400px;
     padding: 10px;
-    border: 2px solid rgb(95, 94, 94);
+    border: 2px solid rgb(143, 142, 142);
     border-radius: 5px;
-    background-color: white;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-bottom: 50px;
     text-align: center;
 
@@ -40,7 +41,7 @@
 .produto img {
     width: 300px;
     height: 200px;
-    object-fit: cover;
+    
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -110,6 +111,24 @@ header a:hover{
     color: red;
     text-decoration: underline;}
 
+nav{
+        background-color: rgb(255, 102, 0);
+        padding: 20px;
+        text-align: center;
+    }
+nav a {
+    color: white;
+    margin-right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+    transition: color 0.5s;
+    color: rgb(0, 0, 0);
+}
+
+
 h3{
     text-align: center;
     font-size: 24px;
@@ -119,6 +138,9 @@ h3{
 h2{
     text-align: center;
 }
+header img, p{
+    margin-left: 1700px;
+}
 
 footer{
         background-color: orangered;
@@ -126,14 +148,13 @@ footer{
         padding: 10px;
         text-align: center;}
 
-
-
     </style>
 </head>
 <body>
     <header>
        <a href="{% url 'usuarios:login' %}">
             <img src="{% static 'img/user.png' %}" alt="user" width="30px">
+            <p>Login</p>
        </a>
         <h1>Supermercado LM</h1>
 
@@ -155,7 +176,10 @@ footer{
             {% else %}
                 <p>Sem imagem</p>  {# ou coloque uma imagem padrão se quiser #}
             {% endif %}
-            <h3>{{produto.nome}}</h3>
+            <hr>
+            <div id="titulo">
+                <h3>{{produto.nome}}</h3>
+            </div>
 
             <p>{% if produto.completo %} Não Perecível{% else %} Perecível {% endif %}</p>
             <p>{{produto.marca}}</p>
